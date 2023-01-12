@@ -293,6 +293,7 @@ menu
 .photo {
     height: 200px;
     border-radius: var(--borderRadius);
+    border:2px solid var(--primary-500);
 }
 .item-info header {
     display: flex;
