@@ -2,7 +2,7 @@ const menu = [
     {
         id: 1,
         title: "buttermilk pancakes",
-        category: "breakfast",
+        category: "starter",
         price: 15.99,
         img: "./assets/image/cake.jpg",
         desc: `I'm baby woke mlkshk wolf bitters live-edge blue bottle, hammock freegan copper mug whatever cold-pressed `,
@@ -18,7 +18,7 @@ const menu = [
     {
         id: 3,
         title: "godzilla milkshake",
-        category: "shakes",
+        category: "deserts",
         price: 6.99,
         img: "./assets/image/monk.jpg",
         desc: `ombucha chillwave fanny pack 3 wolf moon street art photo booth before they sold out organic viral.`,
@@ -42,7 +42,7 @@ const menu = [
     {
         id: 6,
         title: "oreo dream",
-        category: "shakes",
+        category: "deserts",
         price: 18.99,
         img: "./assets/image/pizza.jpg",
         desc: `Portland chicharrones ethical edison bulb, palo santo craft beer chia heirloom iPhone everyday`,
@@ -66,19 +66,42 @@ const menu = [
     {
         id: 9,
         title: "quarantine buddy",
-        category: "shakes",
+        category: "deserts",
         price: 16.99,
         img: "./assets/image/yellowside.jpg",
         desc: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
     },
+    {
+        id: 10,
+        title: "Vitalii special",
+        category: "lunch",
+        price: 4.89,
+        img: "./assets/image/vitalii.jpg",
+        desc: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
+    },
+    {
+        id: 11,
+        title: "brentford bay",
+        category: "breakfast",
+        price: 9.99,
+        img: "./assets/image/rachel.jpg",
+        desc: `carry jianbing normcore freegan. Viral single-origin coffee live-edge, pork belly cloud bread iceland put a bird `,
+    },
 ];
 
 const sectionCenter = document.querySelector('.section-center');
+const btnContainer = document.querySelector('.btn-container');
 
+//load items
+window.addEventListener('DOMContentLoaded', function() {
+    displayMenuItems(menu);
+    displayMenuButtons();
+});
 
-window.addEventListener('DOMContentLoaded', () => {
-    let displayMenu = menu.map((item) => {
+function displayMenuItems(menuItems){
+    let displayMenu = menuItems.map(function (item){
         // console.log(item)
+
         return `<article class="menu-item">
                 <img src=${item.img} class="photo img" alt=${item.title}>
                 <div class="item-info">
@@ -94,7 +117,44 @@ window.addEventListener('DOMContentLoaded', () => {
     });
     displayMenu = displayMenu.join("");
     sectionCenter.innerHTML = displayMenu;
-    console.log(displayMenu)
-});
+    //console.log(displayMenu)
+}
+
+
+function displayMenuButtons(){
+    //Below code is adding unique catgories
+    const categories = menu.reduce(function(values, item) {
+        if (!values.includes(item.category)){
+            values.push(item.category);
+            }
+            return values;
+        }, ["all"]);
+    //we adding html to our categories
+    const categoryBtns = categories.map(function (category) {
+        return `<button class="filter-btn btn" type="button" 
+        data-unique = ${category}>${category}</button>`;
+    }).join("");
+
+    btnContainer.innerHTML = categoryBtns;
+    const filterBtn = document.querySelectorAll(".filter-btn");
+    //filter items
+    filterBtn.forEach((btn) => {
+        btn.addEventListener('click', function (e) {
+            const category = e.currentTarget.dataset.unique;
+            const menuCategory = menu.filter(function (menuItem) {
+            // console.log(menuItem.category);
+            if(menuItem.category === category) {
+                return menuItem;
+            }
+            });
+            // console.log(menuCategory);
+            if (category === "all"){
+                displayMenuItems(menu);
+            } else {
+                displayMenuItems(menuCategory);
+            }
+        });
+    });
+};
 
 
