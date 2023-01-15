@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Task</title>
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="./fontawesome-free-6.2.1-web/css/all.min.css">
+    <!--Normalize css -->
+    <link rel="stylesheet" href="./normalize.css">
+    <!--main css -->
+    <link rel="stylesheet" href="./main.css"/>
+</head>
+<body>
+    <form class="form single-task-form">
+        <h4>Edit Task</h4>
+        <div class="form-control">
+            <label for="form-label">Task ID</label>
+            <p class="task-edit-id">AWQ11785</p>
+        </div>
+        <div class="form-control">
+            <label for="form-label">Name</label>
+            <input type="text" name="name" class="form-input task-edit-name" value="random">
+        </div>
+        <div class="form-control">
+            <label for="form-label">Completed</label>
+            <input type="checkbox" name="completed" class="task-edit-completed" id="">
+        </div>
+        <button type="submit" class="btn btn-block task-edit-btn">edit</button>
+        <div class="form-alert text-small">there was an error</div>
+    </form>
+    <a href="index.html" class="btn back-link">back to tasks</a>
+</body>
+</html>
