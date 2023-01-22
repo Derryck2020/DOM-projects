@@ -1,7 +1,8 @@
 const hex = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "A", "B", "C", "D", "E", "F"]
 
-const color = document.querySelector('.color')
-const btn = document.querySelector('#btn')
+const color = document.querySelector('.color');
+const btn = document.querySelector('#btn');
+const headingColor = document.querySelector('.heading');
 
 btn.addEventListener('click', () => {
     let hexColor = '#';
@@ -11,6 +12,7 @@ btn.addEventListener('click', () => {
     }
     color.textContent = hexColor; 
     document.body.style.backgroundColor = hexColor;
+    headingColor.style.color = hexColor;
 })
 
 function getRandomNumber(){
