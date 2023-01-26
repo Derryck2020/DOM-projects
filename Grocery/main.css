@@ -190,7 +190,9 @@ Grocery List
 }
 
 .grocery-form h3 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;
+    font-weight: 700;
     margin-bottom: 1.5rem;
 }
 .form-control {
@@ -206,11 +208,12 @@ Grocery List
     border-color: transparent;
     font-size: 1rem;
     flex: 1 0 auto;
-    color: var(--clr-grey-5);
+    font-family: cursive;
+    color: var(--grey-400);
 }
 #grocery::placeholder {
     font-family: cursive;
-    color: var(--clr-grey-5);
+    color: var(--clr-grey-1);
 }
 .submit-btn {
     border-color: transparent;
@@ -229,11 +232,11 @@ Grocery List
 .grocery-container {
     margin-top: 2rem;
     transition: var(--transition);
-    /* visibility: hidden; */
+    visibility: hidden;
 }
-/* .show-container {
+.show-container {
     visibility: visible;
-} */
+}
 .grocery-item {
     display: flex;
     align-items: center;
