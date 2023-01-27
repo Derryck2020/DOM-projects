@@ -132,7 +132,7 @@ container
     /*border-radius: var(--borderRadius);*/
 }
 
-img {
+.photo {
     width: 100%;
     display: block;
     object-fit: cover;
