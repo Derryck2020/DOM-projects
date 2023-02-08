@@ -163,7 +163,6 @@ function createListItem(id, value){
         const editBtn = element.querySelector('.edit-btn');
         deleteBtn.addEventListener('click', deleteItem);
         editBtn.addEventListener('click', editItem);
-
         // append child
         list.appendChild(element);
 };
